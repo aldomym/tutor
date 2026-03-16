@@ -25,6 +25,10 @@ body {
   transform: translate(-20px, -5px);
 }
 
+.mbutton{
+  display:none;
+}
+
 .button:hover {
   background-color: black;
   color:white;
@@ -138,9 +142,65 @@ color:white;
   position:fixed;
   top:200px;
   right:500px; 
-
 }
 
+.ulmobile{
+  display:none;
+}
+
+@media screen and (max-width:800px){
+.topnav{
+  width:100%;
+}
+
+.ulmobile{
+  list-style-type: none;
+  display: flex;
+}
+
+b{
+  font-size:1.8rem;
+  margin:1.2rem;
+  padding:0%;
+}
+
+ul{
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+  p{
+    width:100%;
+    height:680px;
+    font-size:10px;
+    transform:translate(0px,-30px);
+  }
+  img{
+    display:none;
+  }
+
+.bgr  {
+  display:none;
+}
+  .container{
+  flex-direction: column;
+  }
+.mobileHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  } 
+.button{
+  display:none;
+}
+.mposition{
+  transform:translateY(140px);
+}
+
+#navbar{
+ display:none;
+}
+}
 </style>
   <title>Smart STEM</title>
   <div id="navbar" class="topnav">
@@ -151,7 +211,7 @@ color:white;
   </div>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <body>
   <div class="bgr">
@@ -159,8 +219,8 @@ color:white;
       Smart STEM
     </h1>
   </div>
+    <h1 style="text-align: center; font-family:'Courier'; font-size:54px; transform:translate(0px,32px);"><b>Take full advantage of your potential!</b></h1>
 </head>
-    <h1 style="text-align: center; font-family:'Courier'; font-size:54px; font-weight: bold; transform:translate(0px,32px);">Take full advantage of your potential!</h1>
 <div>
     <p style="text-align: center; font-family: 'Helvetica'; font-size:28px;">Improve your learning outcomes with Aldo, an expert STEM educator with many years of online tutoring experience to students from all over America!
     </br>
@@ -170,7 +230,9 @@ color:white;
 <h1 style="font-size:18px; transform:translate(1060px,-180px); font-family:'Helvetica'">I have a BSc in Mathematics, 
 <br/>plus 2 years of online tutoring 
 <br/>experience</h1>
-    <h1 style="text-align:center; font-family:'Courier'; font-size:58px; transform:translate(0px,-160px)"><b>Subjects I have expertise in include:</b></h1>
+<div class="mposition">
+<h1 style="text-align:center; font-family:'Courier'; font-size:58px; transform:translate(0px,-160px)"><b>Subjects I have expertise in include:</b></h1>
+</div>
     <div class="color-box" style="background-color: #000000">
     <div class="container">
     <dl style="font-size:24px; color:#ffffff; font-family:Verdana, Geneva, Tahoma, sans-serif">
@@ -200,6 +262,15 @@ color:white;
 <h1 style="text-align:center;font-size:54px; font-family:'Courier'"><b>Get started now!</b></h1>
 <a style="text-align: center;font-size:24px">You can book a 15 minute long consultation to discuss goals and learning needs, free of charge</a>
 <button class="button">Book free consultation</button>
+<button class=""></button>
+<div class="ulmobile">
+  <ul>
+  <li><ahref="index.html" style=" font-family: 'Helvetica';";>Home</a><li>
+  <li><a href="about.html" style="font-family: 'Helvetica';">About</a></li>
+  <li><a href="contact.html" style="font-family: 'Helvetica';">Send me a message</a></li>
+  <li><a href="booksession.html" style="font-family: 'Helvetica';">Book a lesson</a></li>
+  </ul>
+</div>
 </body>
 <ul>
     <li><a href="mailto:aldon2004@hotmail.com" style="font-size:18px";> Send me an email </a></li>
@@ -209,4 +280,5 @@ color:white;
     <li><a>No AI was used during the coding of this website</a><li>
     
 </ul>
+
 </html>
