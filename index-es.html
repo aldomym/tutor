@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Smart STEM Tutor – Expert online tutoring in Physics and Mathematics for students across America. Book a free consultation with Aldo today.">
-  <title>Smart STEM Tutor | Expert Physics &amp; Math Tutoring</title>
+  <meta name="description" content="Smart STEM Tutor – Clases particulares en línea de Física y Matemáticas para estudiantes de toda América. Reserva una consulta gratuita con Aldo hoy.">
+  <title>Smart STEM Tutor | Clases de Física y Matemáticas</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
-    /* ─── CSS Variables ────────────────────────────────────── */
     :root {
       --accent:  #00c8ff;
       --accent2: #ff6b6b;
@@ -26,7 +25,6 @@
       --transition: 0.35s cubic-bezier(.4,0,.2,1);
     }
 
-    /* ─── Base (original preserved) ────────────────────────── */
     body {
       font-family: 'DM Sans', sans-serif;
       line-height: 1.6;
@@ -39,7 +37,6 @@
       background-attachment: fixed;
     }
 
-    /* ─── Original .foot ──────────────────────────────────── */
     .foot {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       border-top: 1px solid var(--border);
@@ -49,7 +46,6 @@
       padding: 32px 0 20px;
     }
 
-    /* ─── Original a.button ────────────────────────────────── */
     a.button {
       background: linear-gradient(135deg, #0d6efd, #0099cc);
       border: gold 2px solid;
@@ -87,7 +83,6 @@
       box-shadow: 0 8px 32px rgba(13,110,253,0.5);
     }
 
-    /* ─── Original .hamburger ──────────────────────────────── */
     .hamburger {
       display: none;
       font-size: 32px;
@@ -100,7 +95,6 @@
       z-index: 1100;
     }
 
-    /* ─── Original .bigcontainer ───────────────────────────── */
     .bigcontainer {
       display: grid;
       grid-template-columns: auto auto auto;
@@ -117,7 +111,6 @@
       justify-content: space-between;
     }
 
-    /* ─── Original .glasscontainer ─────────────────────────── */
     .glasscontainer {
       height: 160px;
       width: 1000px;
@@ -140,10 +133,7 @@
       color: #ffffff;
     }
 
-    .contain {
-      position: relative;
-      transition: all 0.3s ease;
-    }
+    .contain { position: relative; transition: all 0.3s ease; }
 
     .contain:hover {
       transform: scale(1.05) translate(0px,-5px);
@@ -153,20 +143,17 @@
 
     .textimage {
       position: absolute;
-      bottom: 20px;
-      right: 120px;
+      bottom: 20px; right: 120px;
       width: 70px;
       background: linear-gradient(45deg, grey, black);
       color: orange;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 20px; padding-right: 20px;
       border-radius: 18px;
       border: orange solid 2px;
     }
 
     .mbutton { display: none; }
 
-    /* ─── Original .container ──────────────────────────────── */
     .container {
       display: grid;
       align-items: center;
@@ -174,7 +161,6 @@
       column-gap: 5px;
     }
 
-    /* ─── Original .box ─────────────────────────────────────── */
     .box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -214,77 +200,43 @@
       margin-right: 15px;
     }
 
-    /* ─── Original .subjectcards ───────────────────────────── */
-    .subjectcards {
-      display: flex;
-      flex-direction: row;
-    }
+    .subjectcards { display: flex; flex-direction: row; }
 
-    /* ─── Original p ────────────────────────────────────────── */
     p {
       position: relative;
-      width: 1000px;
-      height: 200px;
-      padding: 10px;
-      margin: 10px;
-      top: 60px;
-      right: 0px;
-      color: white;
-      flex: 4;
+      width: 1000px; height: 200px;
+      padding: 10px; margin: 10px;
+      top: 60px; right: 0px;
+      color: white; flex: 4;
     }
 
-    ul {
-      list-style-type: none;
-      display: flex;
-      transform: translate(-30px, 60px);
-    }
-
+    ul { list-style-type: none; display: flex; transform: translate(-30px, 60px); }
     li { padding: 5px; }
 
-    /* ─── Original .bgr ─────────────────────────────────────── */
     .bgr {
-      width: 360px;
-      height: 65px;
+      width: 360px; height: 65px;
       background: linear-gradient(30deg, cyan, blue);
       box-shadow: 0 0 24px rgba(0,200,255,0.25), 0 2px 8px rgba(0,0,0,0.6);
       border-radius: 10px;
-      padding: 3px;
-      margin: 10px;
+      padding: 3px; margin: 10px;
       flex-shrink: 0;
     }
 
     img {
-      max-width: 300%;
-      max-height: 100%;
+      max-width: 300%; max-height: 100%;
       align-content: last baseline;
       box-shadow: 0 0 0 4px rgba(0,200,255,0.25), 0 8px 32px rgba(0,0,0,0.5);
     }
 
-    /* ─── Original .topnav ─────────────────────────────────── */
-    .topnav {
-      background-color: white;
-      overflow: hidden;
-    }
+    .topnav { background-color: white; overflow: hidden; }
 
     .topnav a {
-      float: left;
-      color: white;
-      text-align: center;
-      padding: 14px 10px;
-      text-decoration: none;
-      font-size: 33px;
-      display: inline;
+      float: left; color: white; text-align: center;
+      padding: 14px 10px; text-decoration: none;
+      font-size: 33px; display: inline;
     }
 
-    .bgr2 {
-      width: 200px; height: 100px;
-      position: absolute;
-      background: grey;
-      border: 3px solid black;
-      border-radius: 10px;
-      margin: 10px;
-    }
-
+    /* FIX: bottom CTA button alignment */
     .buttonconsult {
       display: flex;
       flex-direction: column;
@@ -300,7 +252,6 @@
       margin: 16px auto;
     }
 
-    /* ─── Original #navbar ─────────────────────────────────── */
     #navbar {
       position: sticky;
       top: 0; right: 0;
@@ -316,207 +267,112 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
 
-    #navbar a:hover {
-      background-color: #0b5ed7;
-      color: white;
-      border-radius: 30px;
-    }
-
+    #navbar a:hover { background-color: #0b5ed7; color: white; border-radius: 30px; }
     .topnav a.active { background-color: #0b5ed7; }
 
-    #a { text-align: center; }
-    #btn { position: fixed; top: 200px; right: 500px; }
-
-    /* ─── Original .mobile-menu ────────────────────────────── */
     .mobile-menu {
       display: none;
       flex-direction: column;
       background: rgba(20,20,30,0.97);
       border: 1px solid var(--border);
       backdrop-filter: blur(20px);
-      margin: 0;
-      overflow: hidden;
+      margin: 0; overflow: hidden;
       z-index: 999;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .mobile-menu a {
-      display: block;
-      padding: 14px 20px;
-      text-decoration: none;
-      color: var(--text);
-      font-family: 'Helvetica', sans-serif;
-      font-size: 20px;
+      display: block; padding: 14px 20px;
+      text-decoration: none; color: var(--text);
+      font-family: 'Helvetica', sans-serif; font-size: 20px;
       border-bottom: 1px solid var(--border);
       transition: background-color 0.2s, color 0.2s;
     }
 
     .mobile-menu a:last-child { border-bottom: none; }
-
-    .mobile-menu a:hover {
-      background: rgba(0,200,255,0.12);
-      color: var(--accent);
-    }
-
+    .mobile-menu a:hover { background: rgba(0,200,255,0.12); color: var(--accent); }
     .mobile-menu.open { display: flex; }
 
-    /* ─── Original #header ─────────────────────────────────── */
     #header {
-      display: flex;
-      align-items: center;
-      position: sticky;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
+      display: flex; align-items: center;
+      position: sticky; width: 100%; top: 0; z-index: 1000;
       border-bottom: 1px solid rgba(0,200,255,0.15);
       background-color: rgba(18,18,26,0.80);
       backdrop-filter: blur(100px);
       padding: 5px;
     }
 
-    /* ─────────────────────────────────────────────────────── */
-    /* ADDED-ONLY styles below                                 */
-    /* ─────────────────────────────────────────────────────── */
-
     .hero-section { position: relative; padding: 20px 12px 0; }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-flex; align-items: center; gap: 8px;
       background: rgba(0,200,255,0.10);
       border: 1px solid rgba(0,200,255,0.28);
       border-radius: 999px;
-      padding: 6px 16px;
-      margin: 0 12px 12px;
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      padding: 6px 16px; margin: 0 12px 12px;
+      font-size: 13px; color: var(--accent);
+      font-weight: 500; letter-spacing: 0.04em;
       animation: fadeSlideDown 0.7s ease both;
     }
 
     .hero-badge .dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       background: var(--accent);
       animation: blink 1.4s ease-in-out infinite;
     }
 
-    @keyframes blink {
-      0%,100% { opacity: 1; } 50% { opacity: 0.3; }
-    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
 
-    @keyframes fadeSlideDown {
-      from { opacity:0; transform:translateY(-12px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
+    h1.hero-title { animation: fadeSlideUp 0.8s 0.1s ease both; }
+    @keyframes fadeSlideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-    h1.hero-title {
-      animation: fadeSlideUp 0.8s 0.1s ease both;
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity:0; transform:translateY(20px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-
-    /* Stats bar */
     .stats-bar {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 16px 20px;
-      margin: 12px 20px 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
+      display: flex; gap: 12px; flex-wrap: wrap;
+      padding: 16px 20px; margin: 12px 20px 0;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; backdrop-filter: blur(20px);
       animation: fadeSlideUp 0.9s 0.3s ease both;
     }
 
-    .stat-item {
-      flex: 1;
-      min-width: 120px;
-      text-align: center;
-      padding: 12px;
-    }
+    .stat-item { flex: 1; min-width: 120px; text-align: center; padding: 12px; }
 
     .stat-number {
-      font-size: 32px;
-      font-weight: 700;
+      font-size: 32px; font-weight: 700;
       font-family: 'Playfair Display', serif;
-      color: var(--accent);
-      line-height: 1;
+      color: var(--accent); line-height: 1;
     }
 
     .stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      font-size: 12px; color: var(--text-muted);
+      margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em;
     }
 
-    .stat-divider {
-      width: 1px;
-      background: var(--border);
-      align-self: stretch;
-      margin: 4px 0;
-    }
+    .stat-divider { width: 1px; background: var(--border); align-self: stretch; margin: 4px 0; }
 
     .section-eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: block;
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 4px; display: block;
     }
 
-    .subject-icon {
-      font-size: 36px;
-      margin-bottom: 4px;
-      display: block;
-    }
+    .subject-icon { font-size: 36px; margin-bottom: 4px; display: block; }
+    .star-rating { color: gold; font-size: 16px; margin-bottom: 4px; letter-spacing: 2px; }
+    .testimonial-meta { color: var(--text-muted); font-size: 13px; margin-top: 6px; }
 
-    .star-rating {
-      color: gold;
-      font-size: 16px;
-      margin-bottom: 4px;
-      letter-spacing: 2px;
-    }
-
-    .testimonial-meta {
-      color: var(--text-muted);
-      font-size: 13px;
-      margin-top: 6px;
-    }
-
-    .cta-section {
-      position: relative;
-      padding: 20px;
-    }
+    .cta-section { position: relative; padding: 20px; }
 
     .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
+      content: ''; position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
       width: 60%; height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
     .footer-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 999px;
       border: 1px solid var(--border);
-      color: #ccc !important;
-      font-size: 14px !important;
+      color: #ccc !important; font-size: 14px !important;
       text-decoration: none;
       transition: background var(--transition), color var(--transition), border-color var(--transition);
       background: rgba(255,255,255,0.04);
@@ -528,30 +384,14 @@
       color: var(--accent) !important;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .color-box {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .color-box:hover {
-      transform: translateY(-6px) !important;
-      box-shadow: 0 16px 40px rgba(255,80,80,0.3) !important;
-    }
+    .color-box { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .color-box:hover { transform: translateY(-6px) !important; box-shadow: 0 16px 40px rgba(255,80,80,0.3) !important; }
 
     .profile-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
+      position: absolute; inset: -6px; border-radius: 50%;
       border: 2px solid transparent;
       background: conic-gradient(var(--accent), var(--accent2), var(--accent)) border-box;
       -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
@@ -561,111 +401,46 @@
       pointer-events: none;
     }
 
-    @keyframes spin-ring {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
+    @keyframes spin-ring { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
 
     hr.glow-hr {
-      border: none;
-      height: 1px;
+      border: none; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(0,200,255,0.4), transparent);
       margin: 24px 0;
     }
 
-    /* ─── Original media query (preserved) ─────────────────── */
     @media screen and (max-width: 1000px) {
       body { overflow-x: hidden; }
-
       #header { transform: none; width: 100%; box-sizing: border-box; }
-
-      .bgr {
-        width: auto; flex-shrink: 1; min-width: 0;
-        height: 60px; padding: 4px 10px; margin: 6px;
-      }
-
+      .bgr { width: auto; flex-shrink: 1; min-width: 0; height: 60px; padding: 4px 10px; margin: 6px; }
       .bgr h1 { font-size: 22px !important; white-space: nowrap; }
-
       #navbar { display: none; }
-
       .hamburger { display: block; color: white; }
-
-      .bigcontainer {
-        display: flex; flex-direction: column;
-        justify-content: center; padding: 10px;
-        width: 100%; box-sizing: border-box;
-      }
-
-      .bigcontainer1, .bigcontainer2, .bigcontainer3 {
-        display: flex; flex-direction: column;
-        justify-content: center; padding: 10px;
-        width: 100%; box-sizing: border-box;
-      }
-
-      .glasscontainer {
-        width: calc(100% - 24px); height: auto;
-        margin: 12px auto; box-sizing: border-box;
-      }
-
-      p {
-        position: static; width: 100%; height: auto;
-        font-size: 17px !important; padding: 10px; margin: 0;
-        top: unset; transform: none;
-      }
-
-      img {
-        display: block; max-width: 160px; max-height: 160px;
-        border-radius: 50%; margin: 12px auto;
-      }
-
+      .bigcontainer { display: flex; flex-direction: column; justify-content: center; padding: 10px; width: 100%; box-sizing: border-box; }
+      .bigcontainer1, .bigcontainer2, .bigcontainer3 { display: flex; flex-direction: column; justify-content: center; padding: 10px; width: 100%; box-sizing: border-box; }
+      .glasscontainer { width: calc(100% - 24px); height: auto; margin: 12px auto; box-sizing: border-box; }
+      p { position: static; width: 100%; height: auto; font-size: 17px !important; padding: 10px; margin: 0; top: unset; transform: none; }
+      img { display: block; max-width: 160px; max-height: 160px; border-radius: 50%; margin: 12px auto; }
       .contain { margin: 0 auto; }
       .textimage { display: none; }
       a.button { display: none; }
-
-      .buttonconsult a.button {
-        display: block; float: none;
-        width: 80%; max-width: 320px; height: auto;
-        margin: 16px auto; padding: 16px 20px;
-        font-size: 17px; position: static;
-      }
-
+      .buttonconsult a.button { display: block; float: none; width: 80%; max-width: 320px; height: auto; margin: 16px auto; padding: 16px 20px; font-size: 17px; position: static; }
       .mposition { width: 100%; transform: none; }
       .mposition h1 { font-size: 28px !important; text-align: center; }
       .mposition1 { transform: none; width: 100%; }
-
       .subjectcards { flex-direction: column; align-items: center; width: 100%; }
-
-      .color-box {
-        width: calc(100% - 24px) !important;
-        margin: 8px auto !important;
-        box-sizing: border-box;
-      }
-
+      .color-box { width: calc(100% - 24px) !important; margin: 8px auto !important; box-sizing: border-box; }
       .testmposition { transform: none; width: 100%; text-align: center; }
       .testmposition h1 { font-size: 36px !important; }
-
-      .box {
-        width: calc(100% - 32px);
-        transform: none; margin: 12px auto; box-sizing: border-box;
-      }
-
+      .box { width: calc(100% - 32px); transform: none; margin: 12px auto; box-sizing: border-box; }
       .box:hover { transform: translateY(-3px); }
-
       .buttonconsult { width: 100%; padding: 0 16px; box-sizing: border-box; }
       .buttonconsult h1 { font-size: 36px !important; }
       .buttonconsult h2 { font-size: 18px !important; text-align: center; }
-
       .foot { transform: none; height: auto; padding: 16px 0; margin-top: 20px; }
-
-      ul {
-        flex-direction: column; align-items: center;
-        transform: none; padding: 0; margin: 0;
-      }
-
+      ul { flex-direction: column; align-items: center; transform: none; padding: 0; margin: 0; }
       li { padding: 6px 0; text-align: center; }
-
       h1.hero-title { font-size: 36px !important; }
-
       .stats-bar { margin: 12px; gap: 0; }
       .stat-divider { display: none; }
     }
@@ -676,7 +451,7 @@
   <!-- HEADER -->
   <div id="header">
     <div class="bgr">
-      <a href="index.html" style="color:white;">
+      <a href="index-es.html" style="color:white; text-decoration:none;">
         <h1 style="font-size:42px; font-family:'Roboto'; color:white;">Smart STEM Tutor</h1>
       </a>
     </div>
@@ -687,18 +462,18 @@
       </ul>
     </div>
     <div id="navbar" class="topnav">
-      <a class="active" href="index.html" style="color:white; font-family:'Helvetica'; font-size:20px; border-radius:30px;"><b>Inicio</b></a>
-      <a href="about.html" style="font-family:'Helvetica'; font-size:20px;">Sobre mi</a>
+      <a class="active" href="index-es.html" style="color:white; font-family:'Helvetica'; font-size:20px; border-radius:30px;"><b>Inicio</b></a>
+      <a href="about.html" style="font-family:'Helvetica'; font-size:20px;">Sobre mí</a>
       <a href="contact.html" style="font-family:'Helvetica'; font-size:20px;">Envíe un mensaje</a>
       <a href="booksession.html" style="font-family:'Helvetica'; font-size:20px;">Precios</a>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">☰</button>
   </div>
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Inicio</a>
-    <a href="about.html">Sobre mi</a>
+    <a href="index-es.html">Inicio</a>
+    <a href="about.html">Sobre mí</a>
     <a href="contact.html">Envíe un mensaje</a>
     <a href="booksession.html">Precios</a>
   </div>
@@ -707,7 +482,7 @@
   <div class="hero-section">
     <div class="hero-badge">
       <span class="dot"></span>
-      Disponible para nuevos estudiantes &nbsp;·&nbsp; en línea a lo largo de  &amp; Norteamérica
+      Disponible para nuevos estudiantes &nbsp;·&nbsp; En línea en Norteamérica y Sudamérica
     </div>
     <h1 class="hero-title" style="text-align:left; font-family:'Playfair Display','Roboto'; font-size:64px; margin:12px; color:white;">
       <b>¡Aproveche <a style="color:cyan">al máximo</a> su potencial!</b>
@@ -719,7 +494,7 @@
     <div class="glasscontainer reveal">
       <br/>
       <p style="text-align:justify; font-family:'DM Sans','Helvetica'; font-size:22px; margin:13px; transform:translateY(-30px);">
-        ¡Mejora tus resultados académicos con Aldo, un experto en educación STEM con muchos años de experiencia impartiendo clases particulares en línea a estudiantes de todo Estados Unidos!
+        ¡Mejora tus resultados académicos con Aldo, un experto en educación STEM con muchos años de experiencia impartiendo clases particulares en línea a estudiantes de todo el continente americano!
         <br/>
         Gracias a mi gran paciencia y a mi capacidad para adaptarme a diferentes estilos de aprendizaje, te ayudaré a dominar las ciencias y las matemáticas con explicaciones muy claras y concisas.
       </p>
@@ -733,14 +508,14 @@
     </div>
   </div>
 
-  <!-- Original CTA button -->
+  <!-- CTA button -->
   <a href="https://calendly.com/aldon2004/new-meeting" class="button">Reserve una consulta gratuita</a>
 
-  <!-- Stats bar (added) -->
+  <!-- Stats bar -->
   <div class="stats-bar reveal">
     <div class="stat-item">
       <div class="stat-number">50+</div>
-      <div class="stat-label">Estudiantes he ayudado</div>
+      <div class="stat-label">Estudiantes ayudados</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
@@ -755,7 +530,7 @@
     <div class="stat-divider"></div>
     <div class="stat-item">
       <div class="stat-number">100%</div>
-      <div class="stat-label">En línea &amp; Flexible</div>
+      <div class="stat-label">En línea y flexible</div>
     </div>
   </div>
 
@@ -765,7 +540,7 @@
   <div class="">
     <div class="bigcontainer1">
       <div class="mposition">
-        <span class="section-eyebrow" style="text-align:center; display:block; margin-bottom:6px;">Curriculum</span>
+        <span class="section-eyebrow" style="text-align:center; display:block; margin-bottom:6px;">Currículo</span>
         <h1 style="text-align:center; font-family:'Playfair Display','Roboto'; font-size:48px; color:white;"><b>Asignaturas en las que tengo experiencia:</b></h1>
         <hr class="glow-hr">
         <div class="mposition1">
@@ -777,8 +552,8 @@
                   <span class="subject-icon">⚛️</span>
                   <dt style="font-family:'Playfair Display','Roboto'; font-size:32px;">Física</dt>
                   <dd style="font-size:20px;">•Física AP 1,2,3</dd>
-                  <dd style="font-size:20px;">•Física AP: Mecánica</dd>
-                  <dd style="font-size:20px;">•Física AP: Electricidad y magnetismo</dd>
+                  <dd style="font-size:20px;">•Física AP C: Mecánica</dd>
+                  <dd style="font-size:20px;">•Física AP C: Electricidad y magnetismo</dd>
                   <dd style="font-size:20px;">•Mecánica Clásica</dd>
                   <dd style="font-size:20px;">•Mecánica Cuántica</dd>
                   <dd style="font-size:20px;">•Física Computacional</dd>
@@ -791,7 +566,7 @@
                 <dl style="color:#ffffff;">
                   <span class="subject-icon" style="font-size:30px; font-weight:700;">∑</span>
                   <dt style="font-family:'Playfair Display','Roboto'; font-size:32px;">Matemáticas</dt>
-                  <dd style="font-size:20px;">•+Algebra</dd>
+                  <dd style="font-size:20px;">•Álgebra</dd>
                   <dd style="font-size:20px;">•Pre-cálculo</dd>
                   <dd style="font-size:20px;">•Cálculo 1,2,3</dd>
                   <dd style="font-size:20px;">•Álgebra Lineal</dd>
@@ -816,8 +591,8 @@
       <div class="star-rating">★★★★★</div>
       <a><span>Joshua Cline.</span> UC Merced.</a>
       <br/>
-      <q style="font-size:20px;">Aldo is amazing!</q>
-      <div class="testimonial-meta">Física · AP Level</div>
+      <q style="font-size:20px;">¡Aldo es increíble!</q>
+      <div class="testimonial-meta">Física · Nivel AP</div>
     </div>
 
     <div class="box reveal">
@@ -833,8 +608,8 @@
   <!-- CTA SECTION -->
   <div class="buttonconsult cta-section">
     <span class="section-eyebrow" style="margin-bottom:6px;">La primera consulta es sin costo</span>
-    <h1 style="text-align:center; font-size:54px; font-family:'Playfair Display','Roboto'; color:white;"><b>Get started now!</b></h1>
-    <h2 style="text-align:center; font-size:24px; color:white;">Puedes reservar una consulta gratuita de 15 minutos para hablar sobre tus objetivos y necesidades de aprendizaje</h2>
+    <h1 style="text-align:center; font-size:54px; font-family:'Playfair Display','Roboto'; color:white;"><b>¡Comience ahora!</b></h1>
+    <h2 style="text-align:center; font-size:24px; color:white;">Puede reservar una consulta gratuita de 15 minutos para hablar sobre sus objetivos y necesidades de aprendizaje</h2>
     <a href="https://calendly.com/aldon2004/new-meeting" class="button">Reserve una consulta gratuita</a>
 
     <!-- FOOTER -->
@@ -848,3 +623,61 @@
       </ul>
     </div>
   </div>
+
+  <hr>
+
+  <script>
+    const btn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      btn.textContent = isOpen ? '✕' : '☰';
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.textContent = '☰';
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = (i * 0.08) + 's';
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll('.stat-number');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const raw = el.textContent;
+        const num = parseInt(raw);
+        if (isNaN(num)) return;
+        const suffix = raw.replace(/[0-9]/g, '');
+        let cur = 0;
+        const inc = Math.max(1, Math.floor(num / 40));
+        const timer = setInterval(() => {
+          cur = Math.min(cur + inc, num);
+          el.textContent = cur + suffix;
+          if (cur >= num) clearInterval(timer);
+        }, 30);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
