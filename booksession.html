@@ -314,34 +314,78 @@
       flex-shrink: 0;
     }
 
-    /* Book button */
-    .book-btn {
-      display: block;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0d6efd, #0099cc);
-      border: 2px solid gold;
-      color: white;
-      font-size: 16px;
+    /* Payment banner */
+    .payment-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 28px auto 0;
+      padding: 20px 28px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+
+    .payment-banner .pay-label {
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .payment-banner .pay-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .pay-methods {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pay-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid;
       transition: transform var(--transition), box-shadow var(--transition);
-      animation: pulse-glow 2.8s ease-in-out infinite;
     }
 
-    @keyframes pulse-glow {
-      0%,100% { box-shadow: 0 4px 24px rgba(13,110,253,0.35); }
-      50%      { box-shadow: 0 6px 32px rgba(13,110,253,0.55), 0 0 20px 6px rgba(0,200,255,0.12); }
-    }
-
-    .book-btn:hover {
+    .pay-pill:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(13,110,253,0.55);
-      color: white;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .pay-pill.paypal {
+      background: rgba(0, 48, 135, 0.25);
+      border-color: rgba(0, 112, 186, 0.5);
+      color: #4db8ff;
+    }
+
+    .pay-pill.stripe {
+      background: rgba(99, 91, 255, 0.15);
+      border-color: rgba(99, 91, 255, 0.4);
+      color: #a89fff;
+    }
+
+    .pay-pill.wu {
+      background: rgba(255, 180, 0, 0.10);
+      border-color: rgba(255, 180, 0, 0.35);
+      color: #ffd166;
     }
 
     /* ── Disclaimer ─────────────────────────────────────────── */
@@ -474,7 +518,7 @@
       <a href="index.html" style="color:white; font-family:'Helvetica'; font-size:20px;">Home</a>
       <a href="about.html" style="font-family:'Helvetica'; font-size:20px;">About</a>
       <a href="contact.html" style="font-family:'Helvetica'; font-size:20px;">Send me a message</a>
-      <a class="active" href="booksession.html" style="color:white; font-family:'Helvetica'; font-size:20px;">Pricing</a>
+      <a class="active" href="booksession.html" style="color:white; font-family:'Helvetica'; font-size:20px;">Book a lesson</a>
     </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
   </div>
@@ -484,7 +528,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Send me a message</a>
-    <a href="booksession.html">Pricing</a>
+    <a href="booksession.html">Book a lesson</a>
   </div>
 
   <!-- ─── Hero ────────────────────────────────────────────── -->
@@ -512,7 +556,6 @@
         <li>Live one-on-one via video call</li>
         <li>Conversational, adaptive teaching</li>
       </ul>
-      <a href="https://calendly.com/aldon2004/new-meeting" class="book-btn">Book this lesson</a>
     </div>
 
     <!-- Undergraduate card -->
@@ -529,12 +572,21 @@
         <li>Set theory &amp; advanced topics</li>
         <li>Conversational, adaptive teaching</li>
       </ul>
-      <a href="https://calendly.com/aldon2004/new-meeting" class="book-btn">Book this lesson</a>
     </div>
 
   </div>
 
   <p class="disclaimer">Prices are in US dollars · Exchange rate fees may apply</p>
+
+  <div class="payment-banner reveal">
+    <span class="pay-label">I accept</span>
+    <div class="pay-divider"></div>
+    <div class="pay-methods">
+      <span class="pay-pill paypal">🅿 PayPal</span>
+      <span class="pay-pill stripe">⚡ Stripe</span>
+      <span class="pay-pill wu">💛 Western Union</span>
+    </div>
+  </div>
 
   <hr class="glow-hr">
 
