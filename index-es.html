@@ -1,407 +1,850 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<style>
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  padding-bottom: 50px;
-  overflow-x: hidden;
-}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Smart STEM Tutor – Expert online tutoring in Physics and Mathematics for students across America. Book a free consultation with Aldo today.">
+  <title>Smart STEM Tutor | Expert Physics &amp; Math Tutoring</title>
 
-.button {
-  background-color: white;
-  border: 2px solid black;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  float: right;
-  top: 40px;
-  right: 510px;
-  transform: translate(-20px, -5px);
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-.hamburger {
-  display: none;
-  font-size: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
-  padding: 10px 16px;
-  line-height: 1;
-  z-index: 1100;
-}
+  <style>
+    /* ─── CSS Variables ────────────────────────────────────── */
+    :root {
+      --accent:  #00c8ff;
+      --accent2: #ff6b6b;
+      --gold:    gold;
+      --surface: rgba(255,255,255,0.04);
+      --border:  rgba(255,255,255,0.10);
+      --text:    #f0f0f0;
+      --text-muted: #a0a0b0;
+      --transition: 0.35s cubic-bezier(.4,0,.2,1);
+    }
 
-.mbutton {
-  display: none;
-}
+    /* ─── Base (original preserved) ────────────────────────── */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+      background-color: rgb(48, 47, 47) !important;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,200,255,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(255,107,107,0.07) 0%, transparent 60%);
+      background-attachment: fixed;
+    }
 
-.button:hover {
-  background-color: black;
-  color: white;
-}
+    /* ─── Original .foot ──────────────────────────────────── */
+    .foot {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-top: 1px solid var(--border);
+      transform: translateY(0);
+      width: 100%;
+      height: auto;
+      padding: 32px 0 20px;
+    }
 
-.container {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 5px;
-}
+    /* ─── Original a.button ────────────────────────────────── */
+    a.button {
+      background: linear-gradient(135deg, #0d6efd, #0099cc);
+      border: gold 2px solid;
+      border-radius: 8px;
+      color: white;
+      padding: 15px 32px;
+      width: 200px;
+      height: 70px;
+      margin: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      position: inherit;
+      cursor: pointer;
+      float: right;
+      top: 40px;
+      right: 510px;
+      box-shadow: 0 4px 24px rgba(13,110,253,0.35);
+      transition: box-shadow var(--transition), transform var(--transition);
+      animation: pulse-glow 2.8s ease-in-out infinite;
+    }
 
-.box {
-  border: 2px solid #ccc;
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 16px;
-  margin: 16px 0;
-  width: 800px;
-  transform: translatex(220px);
-}
+    @keyframes pulse-glow {
+      0%,100% { box-shadow: 0 4px 24px rgba(13,110,253,0.35), 0 0 0 0 rgba(0,200,255,0.3); }
+      50%      { box-shadow: 0 6px 32px rgba(13,110,253,0.55), 0 0 20px 6px rgba(0,200,255,0.15); }
+    }
 
-.box span {
-  font-size: 20px;
-  margin-right: 15px;
-}
+    .button:hover {
+      background-color: #0b5ed7;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(13,110,253,0.5);
+    }
 
-p {
-  position: relative;
-  width: 1000px;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 12px;
-  padding: 10px;
-  margin: 10px;
-  top: 60px;
-  right: 0px;
-}
+    /* ─── Original .hamburger ──────────────────────────────── */
+    .hamburger {
+      display: none;
+      font-size: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 10px 16px;
+      line-height: 1;
+      z-index: 1100;
+    }
 
-ul {
-  list-style-type: none;
-  display: flex;
-  transform: translate(-30px, 60px);
-}
+    /* ─── Original .bigcontainer ───────────────────────────── */
+    .bigcontainer {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-li {
-  padding: 5px;
-}
+    .bigcontainer1, .bigcontainer2, .bigcontainer3 {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.bgr {
-  width: 340px;
-  height: 85px;
-  background: black;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.9);
-  border-radius: 10px;
-  padding: 3px;
-  margin: 10px;
-  flex-shrink: 0;
-}
+    /* ─── Original .glasscontainer ─────────────────────────── */
+    .glasscontainer {
+      height: 160px;
+      width: 1000px;
+      border-radius: 30px;
+      background-color: rgba(11,157,194,0.345);
+      backdrop-filter: blur(100px);
+      margin: 20px;
+      border: 1px solid rgba(0,200,255,0.30);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
 
-img {
-  max-width: 300%;
-  max-height: 100%;
-  align-content: last baseline;
-}
+    .glasscontainer:hover {
+      transform: scale(1.05) rotate(0deg) translate(0px,-5px) skewX(0deg);
+      box-shadow: 0 15px 20px rgba(0,0,0,0.3);
+      background-color: rgba(11,157,194,0.712);
+      color: #ffffff;
+    }
 
-.topnav {
-  background-color: #f8f8f8;
-  overflow: hidden;
-}
+    .contain {
+      position: relative;
+      transition: all 0.3s ease;
+    }
 
-.topnav a {
-  float: left;
-  color: #000000;
-  text-align: center;
-  padding: 14px 10px;
-  text-decoration: none;
-  font-size: 33px;
-  display: flex;
-  justify-content: end;
-  display: inline;
-}
+    .contain:hover {
+      transform: scale(1.05) translate(0px,-5px);
+      box-shadow: 0 15px 20px rgba(0,0,0,0.3);
+      border-radius: 100%;
+    }
 
-.bgr2 {
-  width: 200px;
-  height: 100px;
-  position: absolute;
-  background: grey;
-  border: 3px solid black;
-  border-radius: 10px;
-  margin: 10px;
-}
+    .textimage {
+      position: absolute;
+      bottom: 20px;
+      right: 120px;
+      width: 70px;
+      background: linear-gradient(45deg, grey, black);
+      color: orange;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 18px;
+      border: orange solid 2px;
+    }
 
-#navbar {
-  position: sticky;
-  top: 0;
-  right: 0;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.9);
-  border: 4px solid black;
-  border-radius: 12px;
-  transition: top 0.3s;
-  margin: 10px;
-  width: 780px;
-  overflow: hidden;
-  background-color: white;
-  transform: translateX(160px);
-  z-index: 1000;
-}
+    .mbutton { display: none; }
 
-#navbar a:hover {
-  background-color: black;
-  color: white;
-}
+    /* ─── Original .container ──────────────────────────────── */
+    .container {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 5px;
+    }
 
-.topnav a.active {
-  background-color: #000000;
-}
+    /* ─── Original .box ─────────────────────────────────────── */
+    .box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      width: 800px;
+      transform: translateX(220px);
+      color: var(--text);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
 
-#a {
-  text-align: center;
-}
+    .box::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px; left: 16px;
+      font-size: 80px;
+      color: var(--accent);
+      opacity: 0.15;
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      pointer-events: none;
+    }
 
-#btn {
-  position: fixed;
-  top: 200px;
-  right: 500px;
-}
+    .box:hover {
+      transform: translateX(220px) translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
 
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 10px;
-  margin: 0 10px;
-  overflow: hidden;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+    .box span {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-right: 15px;
+    }
 
-.mobile-menu a {
-  display: block;
-  padding: 14px 20px;
-  text-decoration: none;
-  color: black;
-  font-family: 'Helvetica', sans-serif;
-  font-size: 20px;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s;
-}
+    /* ─── Original .subjectcards ───────────────────────────── */
+    .subjectcards {
+      display: flex;
+      flex-direction: row;
+    }
 
-.mobile-menu a:last-child {
-  border-bottom: none;
-}
+    /* ─── Original p ────────────────────────────────────────── */
+    p {
+      position: relative;
+      width: 1000px;
+      height: 200px;
+      padding: 10px;
+      margin: 10px;
+      top: 60px;
+      right: 0px;
+      color: white;
+      flex: 4;
+    }
 
-.mobile-menu a:hover {
-  background-color: black;
-  color: white;
-}
+    ul {
+      list-style-type: none;
+      display: flex;
+      transform: translate(-30px, 60px);
+    }
 
-.mobile-menu.open {
-  display: flex;
-}
+    li { padding: 5px; }
 
-.ulmobile {
-  display: none;
-}
+    /* ─── Original .bgr ─────────────────────────────────────── */
+    .bgr {
+      width: 360px;
+      height: 65px;
+      background: linear-gradient(30deg, cyan, blue);
+      box-shadow: 0 0 24px rgba(0,200,255,0.25), 0 2px 8px rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 3px;
+      margin: 10px;
+      flex-shrink: 0;
+    }
 
-#header {
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: white;
-  padding: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
-}
+    img {
+      max-width: 300%;
+      max-height: 100%;
+      align-content: last baseline;
+      box-shadow: 0 0 0 4px rgba(0,200,255,0.25), 0 8px 32px rgba(0,0,0,0.5);
+    }
 
-@media screen and (max-width: 900px) {
-  body {
-    overflow-x: hidden;
-  }
+    /* ─── Original .topnav ─────────────────────────────────── */
+    .topnav {
+      background-color: white;
+      overflow: hidden;
+    }
 
-  .topnav {
-    width: 100%;
-  }
+    .topnav a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 14px 10px;
+      text-decoration: none;
+      font-size: 33px;
+      display: inline;
+    }
 
-  .ulmobile {
-    list-style-type: none;
-    display: flex;
-  }
+    .bgr2 {
+      width: 200px; height: 100px;
+      position: absolute;
+      background: grey;
+      border: 3px solid black;
+      border-radius: 10px;
+      margin: 10px;
+    }
 
-  b {
-    font-size: 1.8rem;
-    margin: 1.2rem;
-    padding: 0%;
-  }
+    .buttonconsult {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  ul {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    .buttonconsult a.button {
+      float: none;
+      position: static;
+      width: auto;
+      min-width: 240px;
+      height: auto;
+      margin: 16px auto;
+    }
 
-  p {
-    width: 95%;
-    height: 620px;
-    font-size: 24px !important;
-    transform: translate(0px, -40px);
-  }
+    /* ─── Original #navbar ─────────────────────────────────── */
+    #navbar {
+      position: sticky;
+      top: 0; right: 0;
+      border-radius: 32px;
+      transition: top 0.3s;
+      margin-left: 340px;
+      width: 500px;
+      overflow: hidden;
+      z-index: 1000;
+      background: rgba(30,30,40,0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
 
-  img {
-    display: none;
-  }
+    #navbar a:hover {
+      background-color: #0b5ed7;
+      color: white;
+      border-radius: 30px;
+    }
 
-  .bgr {
-    width: auto;
-    height: 60px;
-    padding: 4px 10px;
-  }
+    .topnav a.active { background-color: #0b5ed7; }
 
-  .bgr h1 {
-    font-size: 36px !important;
-  }
+    #a { text-align: center; }
+    #btn { position: fixed; top: 200px; right: 500px; }
 
-  .container {
-    flex-direction: column;
-  }
+    /* ─── Original .mobile-menu ────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(20,20,30,0.97);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      margin: 0;
+      overflow: hidden;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
 
-  .button {
-    display: none;
-  }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Helvetica', sans-serif;
+      font-size: 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.2s, color 0.2s;
+    }
 
-  .mposition {
-    transform: translateY(140px);
-  }
+    .mobile-menu a:last-child { border-bottom: none; }
 
-  .box {
-    width: 95%;
-    transform: translateX(10px);
-  }
+    .mobile-menu a:hover {
+      background: rgba(0,200,255,0.12);
+      color: var(--accent);
+    }
 
-  #navbar {
-    display: none;
-  }
+    .mobile-menu.open { display: flex; }
 
-  .hamburger {
-    display: block;
-  }
-}
-</style>
-  <title>Smart STEM</title>
+    /* ─── Original #header ─────────────────────────────────── */
+    #header {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,200,255,0.15);
+      background-color: rgba(18,18,26,0.80);
+      backdrop-filter: blur(100px);
+      padding: 5px;
+    }
+
+    /* ─────────────────────────────────────────────────────── */
+    /* ADDED-ONLY styles below                                 */
+    /* ─────────────────────────────────────────────────────── */
+
+    .hero-section { position: relative; padding: 20px 12px 0; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,200,255,0.10);
+      border: 1px solid rgba(0,200,255,0.28);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin: 0 12px 12px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      animation: fadeSlideDown 0.7s ease both;
+    }
+
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity:0; transform:translateY(-12px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    h1.hero-title {
+      animation: fadeSlideUp 0.8s 0.1s ease both;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 20px;
+      margin: 12px 20px 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      backdrop-filter: blur(20px);
+      animation: fadeSlideUp 0.9s 0.3s ease both;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      margin: 4px 0;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .subject-icon {
+      font-size: 36px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .star-rating {
+      color: gold;
+      font-size: 16px;
+      margin-bottom: 4px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-meta {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .cta-section {
+      position: relative;
+      padding: 20px;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: #ccc !important;
+      font-size: 14px !important;
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .footer-link:hover {
+      background: rgba(0,200,255,0.12);
+      border-color: rgba(0,200,255,0.4);
+      color: var(--accent) !important;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .color-box {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .color-box:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 16px 40px rgba(255,80,80,0.3) !important;
+    }
+
+    .profile-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: conic-gradient(var(--accent), var(--accent2), var(--accent)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      animation: spin-ring 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    hr.glow-hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,200,255,0.4), transparent);
+      margin: 24px 0;
+    }
+
+    /* ─── Original media query (preserved) ─────────────────── */
+    @media screen and (max-width: 1000px) {
+      body { overflow-x: hidden; }
+
+      #header { transform: none; width: 100%; box-sizing: border-box; }
+
+      .bgr {
+        width: auto; flex-shrink: 1; min-width: 0;
+        height: 60px; padding: 4px 10px; margin: 6px;
+      }
+
+      .bgr h1 { font-size: 22px !important; white-space: nowrap; }
+
+      #navbar { display: none; }
+
+      .hamburger { display: block; color: white; }
+
+      .bigcontainer {
+        display: flex; flex-direction: column;
+        justify-content: center; padding: 10px;
+        width: 100%; box-sizing: border-box;
+      }
+
+      .bigcontainer1, .bigcontainer2, .bigcontainer3 {
+        display: flex; flex-direction: column;
+        justify-content: center; padding: 10px;
+        width: 100%; box-sizing: border-box;
+      }
+
+      .glasscontainer {
+        width: calc(100% - 24px); height: auto;
+        margin: 12px auto; box-sizing: border-box;
+      }
+
+      p {
+        position: static; width: 100%; height: auto;
+        font-size: 17px !important; padding: 10px; margin: 0;
+        top: unset; transform: none;
+      }
+
+      img {
+        display: block; max-width: 160px; max-height: 160px;
+        border-radius: 50%; margin: 12px auto;
+      }
+
+      .contain { margin: 0 auto; }
+      .textimage { display: none; }
+      a.button { display: none; }
+
+      .buttonconsult a.button {
+        display: block; float: none;
+        width: 80%; max-width: 320px; height: auto;
+        margin: 16px auto; padding: 16px 20px;
+        font-size: 17px; position: static;
+      }
+
+      .mposition { width: 100%; transform: none; }
+      .mposition h1 { font-size: 28px !important; text-align: center; }
+      .mposition1 { transform: none; width: 100%; }
+
+      .subjectcards { flex-direction: column; align-items: center; width: 100%; }
+
+      .color-box {
+        width: calc(100% - 24px) !important;
+        margin: 8px auto !important;
+        box-sizing: border-box;
+      }
+
+      .testmposition { transform: none; width: 100%; text-align: center; }
+      .testmposition h1 { font-size: 36px !important; }
+
+      .box {
+        width: calc(100% - 32px);
+        transform: none; margin: 12px auto; box-sizing: border-box;
+      }
+
+      .box:hover { transform: translateY(-3px); }
+
+      .buttonconsult { width: 100%; padding: 0 16px; box-sizing: border-box; }
+      .buttonconsult h1 { font-size: 36px !important; }
+      .buttonconsult h2 { font-size: 18px !important; text-align: center; }
+
+      .foot { transform: none; height: auto; padding: 16px 0; margin-top: 20px; }
+
+      ul {
+        flex-direction: column; align-items: center;
+        transform: none; padding: 0; margin: 0;
+      }
+
+      li { padding: 6px 0; text-align: center; }
+
+      h1.hero-title { font-size: 36px !important; }
+
+      .stats-bar { margin: 12px; gap: 0; }
+      .stat-divider { display: none; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <div id="header">
     <div class="bgr">
       <a href="index.html" style="color:white;">
-        <h1 style="font-size:58px; font-family:'Helvetica'; color:white;">Smart STEM</h1>
+        <h1 style="font-size:42px; font-family:'Roboto'; color:white;">Smart STEM Tutor</h1>
       </a>
     </div>
-    <div id="navbar" class="topnav">
-      <a class="active" href="index.html" style="color:white; font-family:'Helvetica';">Inicio</a>
-      <a href="about.html" style="font-family:'Helvetica';">Sobre mi</a>
-      <a href="contact.html" style="font-family:'Helvetica';">Envíe un mensaje</a>
-      <a href="booksession.html" style="font-family:'Helvetica';">Reserve una clase</a>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Español</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="index.html">English</a></li>
+      </ul>
     </div>
-    <!-- Hamburger button (mobile only) -->
+    <div id="navbar" class="topnav">
+      <a class="active" href="index.html" style="color:white; font-family:'Helvetica'; font-size:20px; border-radius:30px;"><b>Inicio</b></a>
+      <a href="about.html" style="font-family:'Helvetica'; font-size:20px;">Sobre mi</a>
+      <a href="contact.html" style="font-family:'Helvetica'; font-size:20px;">Envíe un mensaje</a>
+      <a href="booksession.html" style="font-family:'Helvetica'; font-size:20px;">Precios</a>
+    </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   </div>
 
-  <!-- Mobile dropdown menu (below header) -->
+  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
     <a href="about.html">Sobre mi</a>
     <a href="contact.html">Envíe un mensaje</a>
-    <a href="booksession.html">Reserve una clase</a>
+    <a href="booksession.html">Precios</a>
   </div>
 
-  <h1 style="text-align: center; font-family:'Courier'; font-size:54px; transform:translate(0px,32px);"><b>¡Aproveche al máximo su potencial!</b></h1>
-  <div>
-    <p style="text-align: center; font-family: 'Helvetica'; font-size:23px;">¡Mejora tus resultados académicos con Aldo, un experto en educación STEM con muchos años de experiencia impartiendo clases particulares en línea a estudiantes de todo Estados Unidos!
-    <br/>
-    Gracias a mi gran paciencia y a mi capacidad para adaptarme a diferentes estilos de aprendizaje, te ayudaré a dominar las ciencias y las matemáticas con explicaciones muy claras y concisas.</p>
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Disponible para nuevos estudiantes &nbsp;·&nbsp; en línea a lo largo de  &amp; Norteamérica
+    </div>
+    <h1 class="hero-title" style="text-align:left; font-family:'Playfair Display','Roboto'; font-size:64px; margin:12px; color:white;">
+      <b>¡Aproveche <a style="color:cyan">al máximo</a> su potencial!</b>
+    </h1>
   </div>
-  <img src="IMG_20231222_141252.jpg" width="188" height="250" style="transform: translate(1070px,-180px); border-radius:8px;">
-  <h1 style="font-size:18px; transform:translate(1060px,-180px); font-family:'Helvetica'">Tengo licenciatura en Mátematicas
-  <br/>así como 2 años de experiencia
-  <br/>dando clases particulares</h1>
-  <div class="mposition">
-    <h1 style="text-align:center; font-family:'Courier'; font-size:58px; transform:translate(0px,-180px)"><b>Asignaturas en las que tengo experiencia:</b></h1>
-    <hr>
-  </div>
-  <div class="color-box" style="background-color: #000000; margin:10px; border-radius:8px; transform:translateY(-80px);">
-    <div class="container">
-      <dl style="font-size:24px; color:#ffffff; font-family:Verdana, Geneva, Tahoma, sans-serif">
-        <dt style="font-family:'courier'">Física</dt>
-        <dd>•Física AP 1,2,3</dd>
-        <dd>•Física AP C: Mecánica</dd>
-        <dd>•Física AP C: Electricidad y Magnetismo</dd>
-        <dd>•Mecánica Clásica</dd>
-        <dd>•Mecánica Cuántica</dd>
-        <dd>•Física Computacional</dd>
-      </dl>
-      <img src="https://panolam.com/wp-content/uploads/2022/09/Science-Lab-Chalkboard.jpg">
+
+  <!-- Intro card + photo -->
+  <div class="bigcontainer">
+    <div class="glasscontainer reveal">
+      <br/>
+      <p style="text-align:justify; font-family:'DM Sans','Helvetica'; font-size:22px; margin:13px; transform:translateY(-30px);">
+        ¡Mejora tus resultados académicos con Aldo, un experto en educación STEM con muchos años de experiencia impartiendo clases particulares en línea a estudiantes de todo Estados Unidos!
+        <br/>
+        Gracias a mi gran paciencia y a mi capacidad para adaptarme a diferentes estilos de aprendizaje, te ayudaré a dominar las ciencias y las matemáticas con explicaciones muy claras y concisas.
+      </p>
+    </div>
+    <div class="contain" style="position:relative;">
+      <div class="profile-ring"></div>
+      <img src="IMG_20231222_141252.jpg" width="188" height="250" style="border-radius:100%;">
+      <div class="textimage">
+        <h1 style="font-size:14px;"><b>2+ años</b></h1>
+      </div>
     </div>
   </div>
 
-  <h1 style="font-size:54px; text-align:center; font-family:'courier'"><b>Testimonios</b></h1>
-  <div class="box">
-    <a><span>Joshua Cline.</span> UC Merced.</a>
-    <br/>
-    <q style="font-size:20px;">Aldo is amazing!.</q>
+  <!-- Original CTA button -->
+  <a href="https://calendly.com/aldon2004/new-meeting" class="button">Reserve una consulta gratuita</a>
+
+  <!-- Stats bar (added) -->
+  <div class="stats-bar reveal">
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Estudiantes he ayudado</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">2+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Asignaturas</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">En línea &amp; Flexible</div>
+    </div>
   </div>
-  <div class="box">
-    <a><span>Rob Parker.</span> New York.</a>
-    <br/>
-    <q style="font-size:20px;">¡Aldo es un profesor de física estupendo! Es muy claro y su dominio de todos los conceptos relacionados con la física hace que aprender esta materia me resulte muy fácil y sencillo..</q>
+
+  <hr class="glow-hr">
+
+  <!-- SUBJECTS -->
+  <div class="">
+    <div class="bigcontainer1">
+      <div class="mposition">
+        <span class="section-eyebrow" style="text-align:center; display:block; margin-bottom:6px;">Curriculum</span>
+        <h1 style="text-align:center; font-family:'Playfair Display','Roboto'; font-size:48px; color:white;"><b>Asignaturas en las que tengo experiencia:</b></h1>
+        <hr class="glow-hr">
+        <div class="mposition1">
+          <div class="subjectcards" style="align-content:center;">
+
+            <div class="color-box reveal" style="margin-left:240px; margin-right:20px; border-radius:8px; transform:translateY(-10px); backdrop-filter:blur(40px); width:300px; background:linear-gradient(90deg, rgb(244,107,105), rgb(255,0,0));">
+              <div class="container" style="text-align:center;">
+                <dl style="color:#ffffff;">
+                  <span class="subject-icon">⚛️</span>
+                  <dt style="font-family:'Playfair Display','Roboto'; font-size:32px;">Física</dt>
+                  <dd style="font-size:20px;">•Física AP 1,2,3</dd>
+                  <dd style="font-size:20px;">•Física AP: Mecánica</dd>
+                  <dd style="font-size:20px;">•Física AP: Electricidad y magnetismo</dd>
+                  <dd style="font-size:20px;">•Mecánica Clásica</dd>
+                  <dd style="font-size:20px;">•Mecánica Cuántica</dd>
+                  <dd style="font-size:20px;">•Física Computacional</dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="color-box reveal" style="margin:10px; border-radius:8px; transform:translateY(-10px); backdrop-filter:blur(40px); width:300px; background:linear-gradient(90deg, rgb(244,107,105), rgb(255,0,0));">
+              <div class="container" style="text-align:center;">
+                <dl style="color:#ffffff;">
+                  <span class="subject-icon" style="font-size:30px; font-weight:700;">∑</span>
+                  <dt style="font-family:'Playfair Display','Roboto'; font-size:32px;">Matemáticas</dt>
+                  <dd style="font-size:20px;">•+Algebra</dd>
+                  <dd style="font-size:20px;">•Pre-cálculo</dd>
+                  <dd style="font-size:20px;">•Cálculo 1,2,3</dd>
+                  <dd style="font-size:20px;">•Álgebra Lineal</dd>
+                  <dd style="font-size:20px;">•Ecuaciones diferenciales</dd>
+                  <dd style="font-size:20px;">•Teoría de conjuntos</dd>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testmposition">
+      <span class="section-eyebrow" style="text-align:center; display:block; margin-bottom:6px;">Qué dicen mis estudiantes</span>
+      <h1 style="font-size:54px; text-align:center; font-family:'Playfair Display','Roboto'; color:white;"><b>Testimonios</b></h1>
+    </div>
+
+    <div class="box reveal">
+      <div class="star-rating">★★★★★</div>
+      <a><span>Joshua Cline.</span> UC Merced.</a>
+      <br/>
+      <q style="font-size:20px;">Aldo is amazing!</q>
+      <div class="testimonial-meta">Física · AP Level</div>
+    </div>
+
+    <div class="box reveal">
+      <div class="star-rating">★★★★★</div>
+      <a><span>Rob Parker.</span> Nueva York.</a>
+      <br/>
+      <q style="font-size:20px;">¡Aldo es un profesor de física estupendo! Es muy claro y su dominio de todos los conceptos relacionados con la física hace que aprender esta materia me resulte muy fácil y sencillo.</q>
+      <div class="testimonial-meta">Física · Nivel universitario</div>
+    </div>
+
   </div>
 
-  <h1 style="text-align:center;font-size:54px; font-family:'Courier'"><b>¡Inicie ahora!</b></h1>
-  <h2 style="text-align: center;font-size:24px">Reserve una consulta gratuita para hablar de sus metas y objetivos</h2>
-  <button class="button" style="margin:8px; transform:translate(-20px,-40px);">Reservar consulta</button>
+  <!-- CTA SECTION -->
+  <div class="buttonconsult cta-section">
+    <span class="section-eyebrow" style="margin-bottom:6px;">La primera consulta es sin costo</span>
+    <h1 style="text-align:center; font-size:54px; font-family:'Playfair Display','Roboto'; color:white;"><b>Get started now!</b></h1>
+    <h2 style="text-align:center; font-size:24px; color:white;">Puedes reservar una consulta gratuita de 15 minutos para hablar sobre tus objetivos y necesidades de aprendizaje</h2>
+    <a href="https://calendly.com/aldon2004/new-meeting" class="button">Reserve una consulta gratuita</a>
 
-  <div class="ulmobile">
-    <ul>
-      <li><a href="index.html" style="font-family:'Helvetica';">Home</a></li>
-      <li><a href="about.html" style="font-family:'Helvetica';">About</a></li>
-      <li><a href="contact.html" style="font-family:'Helvetica';">Send me a message</a></li>
-      <li><a href="booksession.html" style="font-family:'Helvetica';">Book a lesson</a></li>
-    </ul>
+    <!-- FOOTER -->
+    <div class="foot">
+      <ul style="text-align:center; gap:10px; flex-wrap:wrap; justify-content:center; transform:none; padding:16px 0;">
+        <li><a href="mailto:aldon2004@hotmail.com" class="footer-link">✉ Envíeme un correo</a></li>
+        <li><a href="https://www.linkedin.com/in/aldo-mayme-martinez" class="footer-link">in LinkedIn</a></li>
+        <li><a href="https://www.reddit.com/user/Glittering_Report_82/" class="footer-link">Reddit</a></li>
+        <li><a href="index.html" class="footer-link">🌐 English</a></li>
+        <li><a style="color:#555; font-size:13px; cursor:default;">©2026, Aldo Mayme</a></li>
+      </ul>
+    </div>
   </div>
-  <ul>
-    <li><a href="mailto:aldon2004@hotmail.com" style="font-size:18px;">Mande un correo</a></li>
-    <li><a href="www.linkedin.com/in/aldo-mayme-martinez" style="font-size:18px;">Linkedin</a></li>
-    <li><a href="https://www.reddit.com/user/Glittering_Report_82/" style="font-size:18px;">Reddit</a></li>
-    <li><a class="active" href="index.html" style="font-size:18px;">English</a></li>
-    <li><a>©2026, Aldo Mayme</a></li>
-  </ul>
-
-  <script>
-    const btn = document.getElementById('hamburgerBtn');
-    const menu = document.getElementById('mobileMenu');
-
-    btn.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      btn.textContent = isOpen ? '✕' : '☰';
-      btn.setAttribute('aria-expanded', isOpen);
-    });
-
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        btn.textContent = '☰';
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
-</body>
-</html>
