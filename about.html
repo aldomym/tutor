@@ -10,295 +10,414 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
+    /* ─── CSS Variables (identical to index) ───────────────── */
     :root {
-      --accent:  #00c8ff;
-      --accent2: #ff6b6b;
-      --surface: rgba(255,255,255,0.04);
-      --border:  rgba(255,255,255,0.10);
-      --text:    #f0f0f0;
-      --text-muted: #a0a0b0;
-      --transition: 0.35s cubic-bezier(.4,0,.2,1);
+      --accent:        #00c8ff;
+      --accent-dim:    rgba(0,200,255,0.15);
+      --accent2:       #ff6b6b;
+      --gold:          #ffd700;
+      --surface:       rgba(255,255,255,0.045);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border:        rgba(255,255,255,0.09);
+      --border-accent: rgba(0,200,255,0.25);
+      --text:          #eef0f4;
+      --text-muted:    #8a8aaa;
+      --bg:            #1c1c26;
+      --radius-card:   16px;
+      --radius-pill:   999px;
+      --transition:    0.32s cubic-bezier(.4,0,.2,1);
+      --font-display:  'Playfair Display', Georgia, serif;
+      --font-body:     'Sora', 'DM Sans', sans-serif;
     }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      padding-bottom: 50px;
+      font-family: var(--font-body);
+      line-height: 1.65;
       overflow-x: hidden;
-      background-color: rgb(48, 47, 47) !important;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,200,255,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(255,107,107,0.07) 0%, transparent 60%);
-      background-attachment: fixed;
       color: var(--text);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% -5%,  rgba(0,200,255,0.09) 0%, transparent 68%),
+        radial-gradient(ellipse 55% 40% at 92% 85%,  rgba(255,107,107,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 8%  70%,  rgba(0,200,255,0.04) 0%, transparent 55%);
+      background-attachment: fixed;
+      padding-bottom: 60px;
     }
 
-    /* ── Header (same as index) ─────────────────────────────── */
+    /* ─── Header (matches index) ────────────────────────────── */
     #header {
       display: flex;
       align-items: center;
+      gap: 12px;
       position: sticky;
-      width: 100%;
       top: 0;
+      width: 100%;
       z-index: 1000;
-      border-bottom: 1px solid rgba(0,200,255,0.15);
-      background-color: rgba(18,18,26,0.80);
-      backdrop-filter: blur(100px);
-      padding: 5px;
+      padding: 0 20px;
+      height: 68px;
+      background: rgba(20,20,32,0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
     }
 
-    .bgr {
-      width: 360px;
-      height: 65px;
-      background: linear-gradient(30deg, cyan, blue);
-      box-shadow: 0 0 24px rgba(0,200,255,0.25), 0 2px 8px rgba(0,0,0,0.6);
-      border-radius: 10px;
-      padding: 3px;
-      margin: 10px;
+    .bgr { display: flex; align-items: center; flex-shrink: 0; }
+
+    .bgr a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #0077aa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
       flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(0,200,255,0.35);
+    }
+
+    .logo-text {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+
+    .dropdown { margin-left: 12px; }
+
+    .dropdown .btn-primary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: var(--font-body);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .dropdown .btn-primary:hover,
+    .dropdown .btn-primary:focus {
+      background: var(--surface-hover);
+      color: var(--accent);
+      border-color: var(--border-accent);
+      box-shadow: none;
     }
 
     #navbar {
-      position: sticky;
-      top: 0; right: 0;
-      border-radius: 32px;
-      margin-left: 340px;
-      width: 500px;
-      overflow: hidden;
-      z-index: 1000;
-      background: rgba(30,30,40,0.85);
-      backdrop-filter: blur(16px);
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      border-radius: var(--radius-pill);
+      padding: 5px 8px;
+      backdrop-filter: blur(10px);
     }
 
-    .topnav { background: transparent; overflow: hidden; }
-
-    .topnav a {
-      float: left;
-      color: white;
-      text-align: center;
-      padding: 14px 10px;
+    #navbar a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 20px;
-      font-family: 'Helvetica', sans-serif;
-      display: inline;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      transition: background var(--transition), color var(--transition);
+      white-space: nowrap;
     }
 
-    .topnav a:hover {
-      background-color: #0b5ed7;
-      color: white;
-      border-radius: 30px;
+    #navbar a:hover,
+    #navbar a.active {
+      background: rgba(0,200,255,0.12);
+      color: var(--accent);
     }
-
-    .topnav a.active { background-color: #0b5ed7; border-radius: 30px; }
 
     .hamburger {
       display: none;
-      font-size: 32px;
-      background: none;
-      border: none;
-      cursor: pointer;
       margin-left: auto;
-      padding: 10px 16px;
-      color: white;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 22px;
+      cursor: pointer;
+      padding: 6px 12px;
+      line-height: 1;
       z-index: 1100;
+      transition: background var(--transition);
     }
+
+    .hamburger:hover { background: var(--surface-hover); }
 
     .mobile-menu {
       display: none;
       flex-direction: column;
-      background: rgba(20,20,30,0.97);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(20px);
+      background: rgba(20,20,32,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(24px);
       z-index: 999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .mobile-menu a {
       display: block;
-      padding: 14px 20px;
-      text-decoration: none;
+      padding: 16px 24px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
       color: var(--text);
-      font-family: 'Helvetica', sans-serif;
-      font-size: 20px;
+      text-decoration: none;
       border-bottom: 1px solid var(--border);
-      transition: background 0.2s, color 0.2s;
+      transition: background var(--transition), color var(--transition);
     }
 
     .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { background: rgba(0,200,255,0.12); color: var(--accent); }
+    .mobile-menu a:hover { background: var(--accent-dim); color: var(--accent); }
     .mobile-menu.open { display: flex; }
 
-    /* ── Glowing divider ────────────────────────────────────── */
-    hr.glow-hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,200,255,0.4), transparent);
-      margin: 32px auto;
-      max-width: 800px;
-    }
-
-    /* ── Section eyebrow ────────────────────────────────────── */
+    /* ─── Shared utilities ───────────────────────────────────── */
     .section-eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.12em;
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 600;
-      display: block;
-      text-align: center;
       margin-bottom: 6px;
     }
 
-    /* ── Page hero area ─────────────────────────────────────── */
-    .about-hero {
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      max-width: 960px;
-      margin: 48px auto 0;
-      padding: 0 24px;
-      animation: fadeSlideUp 0.8s 0.1s ease both;
+    hr.glow-hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,200,255,0.35), transparent);
+      margin: 40px auto;
+      max-width: 860px;
     }
 
-    @keyframes fadeSlideUp {
-      from { opacity:0; transform:translateY(20px); }
-      to   { opacity:1; transform:translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 920px;
+      margin: 56px auto 0;
+      padding: 0 32px;
+      animation: fadeSlideUp 0.8s 0.1s ease both;
     }
 
     .about-photo-wrap {
       position: relative;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .about-photo-wrap img {
-      border-radius: 16px;
       display: block;
-      max-width: 260px;
-      height: auto;
-      box-shadow: 0 0 0 4px rgba(0,200,255,0.25), 0 8px 32px rgba(0,0,0,0.5);
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(0,200,255,0.2), 0 12px 40px rgba(0,0,0,0.5);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .about-photo-wrap:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 5px rgba(0,200,255,0.35), 0 20px 56px rgba(0,0,0,0.55);
     }
 
     .profile-ring {
       position: absolute;
-      inset: -6px;
-      border-radius: 20px;
+      inset: -8px;
+      border-radius: 24px;
       border: 2px solid transparent;
       background: conic-gradient(var(--accent), var(--accent2), var(--accent)) border-box;
       -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: destination-out;
       mask-composite: exclude;
-      animation: spin-ring 6s linear infinite;
+      animation: spin-ring 7s linear infinite;
       pointer-events: none;
+      z-index: 0;
     }
 
-    @keyframes spin-ring {
-      from { transform:rotate(0deg); }
-      to   { transform:rotate(360deg); }
-    }
+    .about-intro-text { display: flex; flex-direction: column; gap: 12px; }
 
     .about-intro-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 56px);
       color: white;
-      margin-bottom: 8px;
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
     .about-intro-text h1 span { color: var(--accent); }
 
     .about-intro-text p {
-      /* override original p rules */
-      position: static !important;
-      width: auto !important;
-      height: auto !important;
-      font-size: 19px !important;
-      color: #d0d0e0;
-      margin: 0 !important;
-      top: unset !important;
-      padding: 0 !important;
-      transform: none !important;
-    }
-
-    /* ── Glass card (reuses index pattern) ──────────────────── */
-    .glass-section {
-      max-width: 860px;
-      margin: 40px auto;
-      padding: 36px 40px;
-      border-radius: 24px;
-      background: rgba(11,157,194,0.10);
-      backdrop-filter: blur(40px);
-      border: 1px solid rgba(0,200,255,0.22);
-      box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .glass-section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-    }
-
-    .glass-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      color: white;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .glass-section p,
-    .glass-section .body-text {
-      position: static !important;
-      width: auto !important;
-      height: auto !important;
-      font-size: 19px !important;
-      color: #d0d0e0;
-      margin: 0 !important;
-      top: unset !important;
-      padding: 0 !important;
-      transform: none !important;
-      text-align: center;
+      font-size: 17px;
+      color: #c8cce0;
       line-height: 1.75;
+      margin: 0;
     }
 
-    /* ── Publication card ───────────────────────────────────── */
-    .pub-card {
+    /* ─── Stats bar ──────────────────────────────────────────── */
+    .stats-bar {
+      display: flex;
       max-width: 860px;
-      margin: 40px auto;
-      padding: 28px 36px;
-      border-radius: 16px;
+      margin: 40px auto 0;
+      padding: 0 32px;
+    }
+
+    .stats-inner {
+      display: flex;
+      width: 100%;
       background: var(--surface);
       border: 1px solid var(--border);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
-      transition: transform var(--transition), box-shadow var(--transition);
-      position: relative;
+      border-radius: var(--radius-card);
+      backdrop-filter: blur(24px);
       overflow: hidden;
     }
 
-    .pub-card::before {
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 24px 16px;
+      position: relative;
+    }
+
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .stat-number {
+      font-size: 34px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    /* ─── Glass card ─────────────────────────────────────────── */
+    .glass-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .glass-inner {
+      background: rgba(0,200,255,0.06);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 40px 44px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-align: center;
+    }
+
+    .glass-inner:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 50px rgba(0,0,0,0.45);
+    }
+
+    .glass-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      color: white;
+      margin: 8px 0 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .glass-inner p {
+      font-size: 17px;
+      color: #c8cce0;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ─── Publication card ───────────────────────────────────── */
+    .pub-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .pub-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    /* Accent top bar */
+    .pub-inner::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 16px 16px 0 0;
     }
 
-    .pub-card:hover {
+    .pub-inner:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 36px rgba(0,0,0,0.4);
+      box-shadow: 0 14px 48px rgba(0,0,0,0.4);
     }
 
-    .pub-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
+    .pub-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
       color: white;
-      margin-bottom: 16px;
-      text-align: center;
+      margin: 8px 0 20px;
+      letter-spacing: -0.02em;
     }
 
     .pub-label {
@@ -308,25 +427,23 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(0,200,255,0.10);
-      border: 1px solid rgba(0,200,255,0.25);
-      border-radius: 999px;
-      padding: 3px 12px;
-      margin-bottom: 12px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-pill);
+      padding: 4px 14px;
+      margin-bottom: 16px;
     }
 
     .pub-title {
-      font-size: 19px;
-      color: #d0d0e0;
-      line-height: 1.7;
-      text-align: center;
-      margin-bottom: 12px;
+      font-size: 17px;
+      color: #c8cce0;
+      line-height: 1.75;
+      margin-bottom: 14px;
     }
 
     .pub-doi {
       font-size: 14px;
       color: var(--text-muted);
-      text-align: center;
     }
 
     .pub-doi a {
@@ -338,250 +455,249 @@
 
     .pub-doi a:hover { color: white; border-color: white; }
 
-    /* ── Stats strip (same pattern as index) ────────────────── */
-    .stats-bar {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 16px 20px;
-      margin: 0 auto 40px;
-      max-width: 860px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
-      animation: fadeSlideUp 0.9s 0.3s ease both;
-    }
-
-    .stat-item { flex:1; min-width:120px; text-align:center; padding:12px; }
-
-    .stat-number {
-      font-size: 32px;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .stat-divider { width:1px; background:var(--border); align-self:stretch; margin:4px 0; }
-
-    /* ── Scroll reveal ──────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    /* ── Footer (same as index) ─────────────────────────────── */
+    /* ─── Footer ─────────────────────────────────────────────── */
     .foot {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(135deg, #12121e 0%, #141c30 100%);
       border-top: 1px solid var(--border);
+      padding: 28px 0 16px;
       width: 100%;
-      height: auto;
-      padding: 32px 0 20px;
       margin-top: 60px;
     }
 
     .foot ul {
-      list-style-type: none;
       display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      transform: none;
-      padding: 16px 0;
-      margin: 0;
+      align-items: center;
     }
 
-    .foot li { padding: 4px; }
+    .foot li { padding: 0; }
 
     .footer-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
       border: 1px solid var(--border);
-      color: #ccc !important;
-      font-size: 14px !important;
+      color: var(--text-muted) !important;
+      font-size: 13px;
+      font-family: var(--font-body);
       text-decoration: none;
       transition: background var(--transition), color var(--transition), border-color var(--transition);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.03);
     }
 
     .footer-link:hover {
-      background: rgba(0,200,255,0.12);
-      border-color: rgba(0,200,255,0.4);
+      background: var(--accent-dim);
+      border-color: var(--border-accent);
       color: var(--accent) !important;
     }
 
-    /* ── Override stray global p/ul/li rules for this page ─── */
-    ul { list-style-type: none; }
-    li { padding: 5px; }
+    .footer-copy {
+      color: #444;
+      font-size: 12px;
+      font-family: var(--font-body);
+    }
 
-    /* ── Responsive ─────────────────────────────────────────── */
-    @media screen and (max-width: 800px) {
-      .about-hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 24px;
-        margin-top: 24px;
-        padding: 0 16px;
-      }
+    /* ─── Keyframes ──────────────────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-      .about-photo-wrap img { max-width: 180px; }
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
 
-      .about-intro-text h1 { font-size: 34px !important; }
-
-      .glass-section, .pub-card {
-        margin: 20px 16px;
-        padding: 24px 20px;
-      }
-
-      .glass-section h2, .pub-card h2 { font-size: 30px !important; }
-
-      .stats-bar { margin: 0 16px 24px; gap: 0; }
-      .stat-divider { display: none; }
-
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media screen and (max-width: 860px) {
       #navbar { display: none; }
       .hamburger { display: block; }
 
-      .bgr {
-        width: auto; flex-shrink: 1;
-        height: 54px; padding: 4px 10px; margin: 6px;
+      .about-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 28px;
+        margin-top: 32px;
+        padding: 0 20px;
       }
 
-      .bgr h1 { font-size: 26px !important; white-space: nowrap; }
+      .about-photo-wrap { margin: 0 auto; }
+
+      .about-photo-wrap img { width: 160px; height: 160px; }
+
+      .section-eyebrow { text-align: center; }
+
+      .stats-bar { padding: 0 20px; }
+
+      .stats-inner { flex-wrap: wrap; }
+
+      .stat-item { flex: 1 1 45%; }
+
+      .stat-item + .stat-item::before { display: none; }
+
+      .glass-section,
+      .pub-section { padding: 0 20px; }
+
+      .glass-inner,
+      .pub-inner { padding: 28px 24px; }
+
+      hr.glow-hr { margin: 28px auto; }
+    }
+
+    @media screen and (max-width: 480px) {
+      .stat-item { flex: 1 1 100%; }
+      .about-intro-text h1 { font-size: 32px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── Header ──────────────────────────────────────────── -->
-  <div id="header">
+  <!-- HEADER -->
+  <header id="header" role="banner">
     <div class="bgr">
-      <a href="index.html" style="color:white; text-decoration:none;">
-        <h1 style="font-size:42px; font-family:'Roboto'; color:white;">Smart STEM Tutor</h1>
+      <a href="index.html" aria-label="Smart STEM Tutor — Home">
+        <span class="logo-mark" aria-hidden="true">⚛</span>
+        <span class="logo-text">Smart STEM Tutor</span>
       </a>
     </div>
+
     <div class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">English</button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="index-es.html">Español</a></li>
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-label="Select language">English</button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item" href="index-es.html" hreflang="es">Español</a></li>
       </ul>
     </div>
-    <div id="navbar" class="topnav">
-      <a href="index.html" style="color:white; font-family:'Helvetica'; font-size:20px;">Home</a>
-      <a class="active" href="about.html" style="color:white; font-family:'Helvetica'; font-size:20px;">About</a>
-      <a href="contact.html" style="font-family:'Helvetica'; font-size:20px;">Send me a message</a>
-      <a href="booksession.html" style="font-family:'Helvetica'; font-size:20px;">Pricing</a>
-    </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-  </div>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
+    <nav id="navbar" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html" aria-current="page"><b>About</b></a>
+      <a href="contact.html">Contact</a>
+      <a href="booksession.html">Pricing</a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Send me a message</a>
     <a href="booksession.html">Pricing</a>
-  </div>
+  </nav>
 
-  <!-- ─── Hero: photo + intro ─────────────────────────────── -->
-  <div class="about-hero">
-    <div class="about-photo-wrap">
-      <div class="profile-ring"></div>
-      <img src="IMG_20231222_141252.jpg" width="320" height="250" alt="Aldo, Smart STEM Tutor" style="border-radius:16px;">
-    </div>
-    <div class="about-intro-text">
-      <span class="section-eyebrow" style="text-align:left;">Meet your tutor</span>
-      <h1>About <span>me</span></h1>
-      <p>I am a highly qualified tutor with 2 years of online tutoring experience with primarily American students. My experience has included teaching in high school, mostly the IB curriculum. I have also tutored classical and quantum mechanics to undergraduate students. Previously worked in Varsity Tutors.
-      <br/><br/>
-      STEM subjects have always been my passion, and as such, I am pleased to teach it to others so that hopefully I can make them passionate too.</p>
-    </div>
-  </div>
+  <!-- MAIN -->
+  <main>
 
-  <!-- ─── Stats strip ──────────────────────────────────────── -->
-  <div class="stats-bar reveal">
-    <div class="stat-item">
-      <div class="stat-number">2+</div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-number">50+</div>
-      <div class="stat-label">Students Helped</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-number">1</div>
-      <div class="stat-label">Journal Publication</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Passion-Driven</div>
-    </div>
-  </div>
+    <!-- HERO -->
+    <section class="about-hero" aria-label="Aldo's introduction">
+      <div class="about-photo-wrap">
+        <div class="profile-ring" aria-hidden="true"></div>
+        <img
+          src="IMG_20231222_141252.jpg"
+          width="220"
+          height="220"
+          alt="Aldo Mayme — Expert online Physics and Math tutor"
+          fetchpriority="high"
+        >
+      </div>
+      <div class="about-intro-text">
+        <span class="section-eyebrow" style="text-align:left;">Meet your tutor</span>
+        <h1>About <span>me</span></h1>
+        <p>
+          I am a highly qualified tutor with 2+ years of online tutoring experience with primarily American students. My experience has included teaching high school IB curriculum and tutoring classical and quantum mechanics to undergraduates. Previously worked with Varsity Tutors.
+          <br/><br/>
+          STEM subjects have always been my passion, and I'm pleased to share that passion with every student I work with.
+        </p>
+      </div>
+    </section>
 
-  <hr class="glow-hr">
+    <!-- STATS -->
+    <section class="stats-bar reveal" aria-label="Tutoring statistics">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Students Helped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Journal Publication</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Passion-Driven</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ─── Education ────────────────────────────────────────── -->
-  <div class="glass-section reveal">
-    <span class="section-eyebrow">Background</span>
-    <h2>Education</h2>
-    <p>Bachelor's degree in Mathematics. Universidad Nacional Autónoma de México. 2024.
-    <br/>Focused especially in mathematical physics, dynamical systems and numerical simulations.</p>
-  </div>
+    <hr class="glow-hr">
 
-  <hr class="glow-hr">
+    <!-- EDUCATION -->
+    <section class="glass-section reveal" aria-labelledby="education-heading">
+      <div class="glass-inner">
+        <span class="section-eyebrow">Background</span>
+        <h2 id="education-heading">Education</h2>
+        <p>
+          Bachelor's degree in Mathematics<br>
+          <strong style="color:var(--accent);">Universidad Nacional Autónoma de México</strong> · 2024<br><br>
+          Focused especially in mathematical physics, dynamical systems and numerical simulations.
+        </p>
+      </div>
+    </section>
 
-  <!-- ─── Publications ─────────────────────────────────────── -->
-  <div class="pub-card reveal">
-    <span class="section-eyebrow">Research</span>
-    <h2>Publications</h2>
-    <div style="text-align:center;">
-      <span class="pub-label">Peer-Reviewed · European Journal of Physics</span>
-    </div>
-    <div class="pub-title">
-      Aldo Mayme and Carl E Mungan (2025) &nbsp;<em>Eur. J. Phys.</em>&nbsp; 46 035004
-    </div>
-    <div class="pub-doi">
-      DOI:&nbsp;<a href="https://doi.org/10.1088/1361-6404/adca14" target="_blank" rel="noopener">10.1088/1361-6404/adca14</a>
-    </div>
-  </div>
+    <hr class="glow-hr">
 
-  <!-- ─── Footer ───────────────────────────────────────────── -->
-  <div class="foot">
+    <!-- PUBLICATION -->
+    <section class="pub-section reveal" aria-labelledby="publications-heading">
+      <div class="pub-inner">
+        <span class="section-eyebrow">Research</span>
+        <h2 id="publications-heading">Publications</h2>
+        <div>
+          <span class="pub-label">Peer-Reviewed · European Journal of Physics</span>
+        </div>
+        <p class="pub-title">
+          Aldo Mayme and Carl E Mungan (2025) &nbsp;<em>Eur. J. Phys.</em>&nbsp; 46 035004
+        </p>
+        <p class="pub-doi">
+          DOI:&nbsp;<a href="https://doi.org/10.1088/1361-6404/adca14" target="_blank" rel="noopener noreferrer">10.1088/1361-6404/adca14</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot" role="contentinfo">
     <ul>
       <li><a href="mailto:aldon2004@hotmail.com" class="footer-link">✉ Email me</a></li>
-      <li><a href="https://www.linkedin.com/in/aldo-mayme-martinez" class="footer-link">in LinkedIn</a></li>
-      <li><a href="https://www.reddit.com/user/Glittering_Report_82/" class="footer-link">Reddit</a></li>
-      <li><a href="index-es.html" class="footer-link">🌐 Español</a></li>
-      <li><a style="color:#555; font-size:13px; cursor:default;">©2026, Aldo Mayme</a></li>
+      <li><a href="https://www.linkedin.com/in/aldo-mayme-martinez" class="footer-link" rel="noopener noreferrer">in LinkedIn</a></li>
+      <li><a href="https://www.reddit.com/user/Glittering_Report_82/" class="footer-link" rel="noopener noreferrer">Reddit</a></li>
+      <li><a href="index-es.html" class="footer-link" hreflang="es">🌐 Español</a></li>
+      <li><span class="footer-copy">©2026 Aldo Mayme</span></li>
     </ul>
-  </div>
+  </footer>
 
   <script>
     /* Hamburger */
-    const btn = document.getElementById('hamburgerBtn');
+    const btn  = document.getElementById('hamburgerBtn');
     const menu = document.getElementById('mobileMenu');
+
     btn.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('open');
       btn.textContent = isOpen ? '✕' : '☰';
       btn.setAttribute('aria-expanded', isOpen);
     });
+
     menu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.remove('open');
@@ -591,39 +707,39 @@
     });
 
     /* Scroll reveal */
-    const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = (i * 0.1) + 's';
+          entry.target.style.transitionDelay = (i * 0.08) + 's';
           entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => revealObserver.observe(el));
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* Counter animation */
-    const counters = document.querySelectorAll('.stat-number');
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el = entry.target;
+        const el  = entry.target;
         const raw = el.textContent;
         const num = parseInt(raw);
         if (isNaN(num)) return;
         const suffix = raw.replace(/[0-9]/g, '');
         let cur = 0;
-        const inc = Math.max(1, Math.floor(num / 40));
+        const inc   = Math.max(1, Math.floor(num / 40));
         const timer = setInterval(() => {
           cur = Math.min(cur + inc, num);
           el.textContent = cur + suffix;
           if (cur >= num) clearInterval(timer);
-        }, 30);
+        }, 28);
         counterObserver.unobserve(el);
       });
     }, { threshold: 0.5 });
-    counters.forEach(el => counterObserver.observe(el));
+
+    document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
